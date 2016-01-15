@@ -10,6 +10,7 @@
  aptitude install libc-client2007e-dev
  aptitude install libldb-dev
 ./create.so.linker.files.sh
+cd ~/GB.ubuntu14.04.setup
  apt-get install libmcrypt-dev
  aptitude install apache2
  aptitude build-dep php5
