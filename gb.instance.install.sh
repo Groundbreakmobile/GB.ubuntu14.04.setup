@@ -16,6 +16,7 @@ sleep 2
 ./create.so.linker.files.sh
 sleep 2
 cd ~/GB.ubuntu14.04.setup
+
  git clone https://github.com/cweiske/phpfarm.git /opt/phpfarm
  cp resources/phpfarm/* /opt/phpfarm/src/.
 
