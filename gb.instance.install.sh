@@ -5,16 +5,20 @@
 
 echo "update apt"
  aptitude update
+
 echo "install vim"
  aptitude -y install vim
 # git is already installed
 # aptitude -y install git 
+
 echo "install build-essential"
  aptitude -y install build-essential
+
 echo "install libraries"
  aptitude -y install libc-client2007e-dev
  aptitude -y install libldb-dev
  aptitude -y install libmcrypt-dev
+
 echo "install apache"
  aptitude -y install apache2
 
