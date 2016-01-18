@@ -47,3 +47,6 @@ cp resources/apache/GB.standard.vhost.conf /etc/apache2/sites-available/.
 
 a2ensite GB.standard.vhost.conf
 apachectl restart
+
+git config --global user.name "NSM GB Server"
+git config --global user.email nmorris@groundbreakmobile.com
