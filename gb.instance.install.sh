@@ -67,7 +67,6 @@ service apache2 restart
 echo "set up cgi directories"
 mkdir /etc/apache2/cgi-servers/
 
-
 cd ~/GB.ubuntu14.04.setup
 echo "copy php-cgi-5.3.29.conf to cgi-servers"
 cp resources/apache/php-cgi-5.3.29.conf /etc/apache2/cgi-servers/.
