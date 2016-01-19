@@ -19,6 +19,9 @@ echo "install libraries"
  aptitude -y install libldb-dev
  aptitude -y install libmcrypt-dev
 
+echo "install fastcgi"
+ aptitude -y libapache2-mod-fastcgi
+
 echo "install apache"
  aptitude -y install apache2
 
@@ -55,7 +58,7 @@ echo "add new path to bash startup"
 echo 'PATH="$PATH:/opt/phpfarm/inst/bin"' >> ~/.bashrc
 
 echo "enable apache modules"
-a2enmod fascgi actions suexec
+a2enmod fastcgi actions suexec
 
 echo "add FASTCGI options to apache config"
 echo "# Include FastCGI configuration for PHPFarm" >> /etc/apache2/apache2.conf
