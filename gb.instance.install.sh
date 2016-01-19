@@ -20,7 +20,9 @@ echo "install libraries"
  aptitude -y install libmcrypt-dev
 
 echo "install fastcgi"
- aptitude -y libapache2-mod-fastcgi
+ aptitude -y install libapache2-mod-fastcgi
+ aptitude -y install apache2-mpm-worker
+ aptitude -y install apache2-suexec
 
 echo "install apache"
  aptitude -y install apache2
