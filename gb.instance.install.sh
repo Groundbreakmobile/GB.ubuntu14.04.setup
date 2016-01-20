@@ -29,6 +29,7 @@ echo "install apache"
 
 echo "build php dependencies"
  aptitude -y build-dep php5
+ aptitude -y install php5-fpm
 
 echo "resting..."
 sleep 2
@@ -63,6 +64,11 @@ echo 'PATH="$PATH:/opt/phpfarm/inst/bin"' >> ~/.bashrc
 
 echo "enable apache modules"
 a2enmod fastcgi actions suexec alias rewrite
+
+cd ~/GB.ubuntu14.04.setup/
+cp resources/apache2/conf-available/php5-fpm.conf /etc/apache2/conf-available/.
+
+a2enconf php5-fpm
 
 #echo "add FASTCGI options to apache config"
 #echo "# Include FastCGI configuration for PHPFarm" >> /etc/apache2/apache2.conf
