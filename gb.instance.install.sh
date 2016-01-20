@@ -45,9 +45,9 @@ echo "install phpfarm"
 echo "customize phpfarm"
  cp resources/phpfarm/* /opt/phpfarm/src/.
 
-echo "compile php 5.4.45"
-cd /opt/phpfarm/src
- ./compile.sh 5.4.45
+#echo "compile php 5.4.45"
+#cd /opt/phpfarm/src
+# ./compile.sh 5.4.45
 
 echo "compile php 5.3.29"
 cd /opt/phpfarm/src
@@ -91,7 +91,8 @@ a2ensite 5.3.29.vhost.conf
 
 a2dissite 000-default.conf
 
-service apache2 restart
+# not yet
+#service apache2 restart
 
 mkdir -p /var/www/test.groundbreakmobile.com
 
