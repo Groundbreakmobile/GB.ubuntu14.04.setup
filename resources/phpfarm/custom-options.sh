@@ -24,11 +24,11 @@ configoptions="\
 --enable-sqlite-utf8 \
 --enable-wddx \
 --enable-zip \
---enable-fpm \
 --with-zlib \
 --with-ldap=/usr \
 --with-jpeg-dir \
 --enable-gd-native-ttf \
+--enable-fpm \
 --with-freetype-dir \
 --with-freetype-dir=/usr/local/include/freetype2 \
 --with-unixODBC=/usr \

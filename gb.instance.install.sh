@@ -51,7 +51,9 @@ echo "customize phpfarm"
 
 echo "compile php 5.3.29"
 cd /opt/phpfarm/src
-./complie.sh 5.3.29
+./compile.sh 5.3.29
+#ln -s /opt/phpfarm/inst/php-5.3.29/bin/php /usr/bin/php
+
 
 echo "export new paths"
 export PATH="$PATH:/opt/phpfarm/inst/bin"
