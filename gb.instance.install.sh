@@ -5,9 +5,10 @@
 
 echo "update apt"
  aptitude update
+ aptitude -y upgrade
 
-echo "install vim"
- aptitude -y install vim
+#echo "install vim"# vim installed by default in EC2 ubuntu 14.04 image
+# aptitude -y install vim
 # git is already installed
 # aptitude -y install git 
 
