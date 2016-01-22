@@ -29,7 +29,7 @@ echo "install apache"
 
 echo "build php dependencies"
  aptitude -y build-dep php5
- aptitude -y install php5-fpm
+# aptitude -y install php5-fpm
 
 echo "resting..."
 sleep 2
@@ -79,21 +79,21 @@ service apache2 restart
 
 echo "set up conf cgi"
 #mkdir /etc/apache2/cgi-servers/
-cp ~/GB.ubuntu14.04.setup/resources/apache2/php-cgisetup.conf /etc/apache2/conf-available/.
+#cp ~/GB.ubuntu14.04.setup/resources/apache2/php-cgisetup.conf /etc/apache2/conf-available/.
 
-ln -s /etc/apache2/conf-available/php-cgisetup.conf /etc/apache2/conf-enabled/php-cgisetup.conf
+#ln -s /etc/apache2/conf-available/php-cgisetup.conf /etc/apache2/conf-enabled/php-cgisetup.conf
 
-mkdir -p /var/www/cgi-bin
+#mkdir -p /var/www/cgi-bin
 
-cp ~/GB.ubuntu14.04.setup/resources/var/www/cgi-bin/php-cgi-5.3.29  /var/www/cgi-bin/.
+#cp ~/GB.ubuntu14.04.setup/resources/var/www/cgi-bin/php-cgi-5.3.29  /var/www/cgi-bin/.
 
-chown -R www-data:www-data /var/www/cgi-bin
+#chown -R www-data:www-data /var/www/cgi-bin
 
-chmod -R 0744 /var/www/cgi-bin
+#chmod -R 0744 /var/www/cgi-bin
 
 cp ~/GB.ubuntu14.04.setup/resources/etc/apache2/sites-available/5.3.29.vhost.conf /etc/apache2/sites-available/.
 
-a2dismod php5
+#a2dismod php5
 
 a2ensite 5.3.29.vhost.conf
 
