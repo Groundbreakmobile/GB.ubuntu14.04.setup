@@ -133,6 +133,18 @@ service apache2 restart
 #echo "restart apache"
 #apachectl restart
 
+# final??
+
+ln -s /opt/phpfarm/inst/php-5.3.29/bin/php /usr/bin/php
+
+# start php-fpm
+/opt/phpfarm/inst/php-5.3.29/sbin/php-fpm -y /etc/apache2/conf-enabled/php-fpm.conf -c /opt/phpfarm/inst/php-5.3.29/lib/php.ini
+
+a2enmod proxy_fcgi
+
+service apache2 restart
+
+
 echo "set git publishing credentials"
 git config --global user.name "NSM GB Server"
 git config --global user.email nmorris@groundbreakmobile.com
