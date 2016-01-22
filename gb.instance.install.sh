@@ -67,16 +67,16 @@ echo "enable apache modules"
 a2enmod fastcgi actions suexec alias rewrite
 
 cd ~/GB.ubuntu14.04.setup/
-cp resources/apache2/conf-available/php5-fpm.conf /etc/apache2/conf-available/.
+#cp resources/apache2/conf-available/php5-fpm.conf /etc/apache2/conf-available/.
 
-a2enconf php5-fpm
+#a2enconf php5-fpm
 
 #echo "add FASTCGI options to apache config"
 #echo "# Include FastCGI configuration for PHPFarm" >> /etc/apache2/apache2.conf
 #echo "IncludeOptional cgi-servers/*.conf" >> /etc/apache2/apache2.conf
 
 echo "restart apache"
-service apache2 restart
+#service apache2 restart
 
 echo "set up conf cgi"
 #mkdir /etc/apache2/cgi-servers/
@@ -107,7 +107,7 @@ mkdir -p /var/www/test.groundbreakmobile.com
 
 echo "<?php phpinfo(); ?>" >/var/www/test.groundbreakmobile.com/index.php
 
-service apache2 restart
+#service apache2 restart
 
 
 
@@ -137,8 +137,9 @@ service apache2 restart
 
 ln -s /opt/phpfarm/inst/php-5.3.29/bin/php /usr/bin/php
 
+cp ~/GB.ubuntu14.04.setup/resources/apache2/php-fpm.conf /opt/phpfarm/inst/php-5.3.29/etc/.
 # start php-fpm
-/opt/phpfarm/inst/php-5.3.29/sbin/php-fpm -y /etc/apache2/conf-enabled/php-fpm.conf -c /opt/phpfarm/inst/php-5.3.29/lib/php.ini
+/opt/phpfarm/inst/php-5.3.29/sbin/php-fpm -y /opt/phpfarm/inst/php-5.3.29/etc/php-fpm.conf -c /opt/phpfarm/inst/php-5.3.29/lib/php.ini
 
 a2enmod proxy_fcgi
 
