@@ -46,21 +46,46 @@ echo "install phpfarm"
 echo "customize phpfarm"
  cp resources/phpfarm/* /opt/phpfarm/src/.
 
-#echo "compile php 5.4.45"
-#cd /opt/phpfarm/src
-# ./compile.sh 5.4.45
+mkdir /opt/phpfarm/inst/conf
+mkdir /opt/phpfarm/inst/ini
 
-echo "compile php 5.3.29"
+
+echo "compile php 5.4.45"
 cd /opt/phpfarm/src
-./compile.sh 5.3.29
+ ./compile.sh 5.4.45
+#add php-fpm to the bin folder
+ln -s /opt/phpfarm/inst/php-5.4.45/sbin/php-fpm /opt/phpfarm/inst/php-5.4.45/bin/php-fpm
+cp ~/GB.ubuntu14.04.setup/resources/apache2/php-fpm.conf /opt/phpfarm/inst/php-5.4.45/etc/.
+cp ~/GB.ubuntu14.04.setup/resources/apache2/php-fpm.conf /opt/phpfarm/inst/conf/.
+cp /opt/phpfarm/inst/php-5.4.45/lib/php.ini /opt/phpfarm/inst/ini/.
+ln -s /opt/phpfarm/inst/php-5.4.45/etc/php-fpm.conf /opt/phpfarm/inst/php-5.4.45/bin/php-fpm.conf
+
+
+
+#echo "compile php 5.3.29"
+#cd /opt/phpfarm/src
+#./compile.sh 5.3.29
+#add php-fpm to the bin folder
+#ln -s /opt/phpfarm/inst/php-5.3.29/sbin/php-fpm /opt/phpfarm/inst/php-5.3.29/bin/php-fpm
+#cp ~/GB.ubuntu14.04.setup/resources/apache2/php-fpm.conf /opt/phpfarm/inst/php-5.3.29/etc/.
 
 
 echo "export new paths"
-export PATH="$PATH:/opt/phpfarm/inst/bin"
+#export PATH="$PATH:/opt/phpfarm/inst/bin:/opt/phpfarm/inst/current-bin"  # duplicated below
 
 echo "add new path to bash startup"
-echo 'PATH="$PATH:/opt/phpfarm/inst/bin"' >> ~/.bashrc
+echo 'PATH="$PATH:/opt/phpfarm/inst/bin:/opt/phpfarm/inst/current-bin"' >> ~/.bashrc
 source ~/.bashrc
+
+
+echo "adding APC"
+
+
+echo "adding php-fpm init script"
+cp ~/GB.ubuntu14.04.setup/resources/init.d/php-init-fpm /etc/init.d/.
+chmod 755 /etc/init.d/php-init-fpm
+update-rc.d php-init-fpm defaults
+
 
 echo "enable apache modules"
 a2enmod fastcgi actions suexec alias rewrite
@@ -79,9 +104,8 @@ mkdir -p /var/www/test.groundbreakmobile.com
 
 echo "<?php phpinfo(); ?>" >/var/www/test.groundbreakmobile.com/index.php
 
-ln -s /opt/phpfarm/inst/php-5.3.29/bin/php /usr/bin/php
+ln -s /opt/phpfarm/inst/current-bin/php /usr/bin/php
 
-cp ~/GB.ubuntu14.04.setup/resources/apache2/php-fpm.conf /opt/phpfarm/inst/php-5.3.29/etc/.
 
 # start php-fpm
 /opt/phpfarm/inst/php-5.3.29/sbin/php-fpm -y /opt/phpfarm/inst/php-5.3.29/etc/php-fpm.conf -c /opt/phpfarm/inst/php-5.3.29/lib/php.ini
