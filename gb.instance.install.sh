@@ -68,6 +68,9 @@ ln -s /opt/phpfarm/inst/php-5.4.45/etc/php-fpm.conf /opt/phpfarm/inst/php-5.4.45
 #add php-fpm to the bin folder
 #ln -s /opt/phpfarm/inst/php-5.3.29/sbin/php-fpm /opt/phpfarm/inst/php-5.3.29/bin/php-fpm
 #cp ~/GB.ubuntu14.04.setup/resources/apache2/php-fpm.conf /opt/phpfarm/inst/php-5.3.29/etc/.
+#cp ~/GB.ubuntu14.04.setup/resources/apache2/php-fpm.conf /opt/phpfarm/inst/conf/.
+#cp /opt/phpfarm/inst/php-5.3.29/lib/php.ini /opt/phpfarm/inst/ini/.
+#ln -s /opt/phpfarm/inst/php-5.3.29/etc/php-fpm.conf /opt/phpfarm/inst/php-5.3.29/bin/php-fpm.conf
 
 
 echo "export new paths"
