@@ -80,6 +80,9 @@ echo "add new path to bash startup"
 echo 'PATH="$PATH:/opt/phpfarm/inst/bin:/opt/phpfarm/inst/current-bin"' >> ~/.bashrc
 source ~/.bashrc
 
+echo "choose php version"
+switch-phpfarm 5.4.45
+#switch-phpfarm 5.3.29
 
 echo "adding APC"
 
@@ -111,7 +114,8 @@ ln -s /opt/phpfarm/inst/current-bin/php /usr/bin/php
 
 
 # start php-fpm
-/opt/phpfarm/inst/php-5.3.29/sbin/php-fpm -y /opt/phpfarm/inst/php-5.3.29/etc/php-fpm.conf -c /opt/phpfarm/inst/php-5.3.29/lib/php.ini
+#php-fpm is now a service#/opt/phpfarm/inst/php-5.3.29/sbin/php-fpm -y /opt/phpfarm/inst/php-5.3.29/etc/php-fpm.conf -c /opt/phpfarm/inst/php-5.3.29/lib/php.ini
+service php-init-fpm start
 
 a2enmod proxy_fcgi
 
