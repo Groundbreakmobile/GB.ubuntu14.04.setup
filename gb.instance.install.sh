@@ -112,6 +112,21 @@ echo "<?php phpinfo(); ?>" >/var/www/test.groundbreakmobile.com/index.php
 
 ln -s /opt/phpfarm/inst/current-bin/php /usr/bin/php
 
+echo "set up apc for 5.4.45"
+
+cd /opt/phpfarm/src/
+mkdir extensions
+rm -rf extensions
+cd extensions/
+ pecl download apc
+tar vxzf APC-3.1.13.tgz
+ cd APC-3.1.13/
+ /opt/phpfarm/inst/bin/phpize-5.4.4
+ ./configure --with-php-config=/opt/phpfarm/inst/bin/php-config-5.4.45
+  make
+  make install
+
+
 
 # start php-fpm
 #php-fpm is now a service#/opt/phpfarm/inst/php-5.3.29/sbin/php-fpm -y /opt/phpfarm/inst/php-5.3.29/etc/php-fpm.conf -c /opt/phpfarm/inst/php-5.3.29/lib/php.ini
