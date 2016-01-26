@@ -86,6 +86,8 @@ echo "choose php version"
 
 echo "adding APC"
 
+echo "installing pear"
+aptitude -y install php-pear
 
 echo "adding php-fpm init script"
 cp ~/GB.ubuntu14.04.setup/resources/init.d/php-init-fpm /etc/init.d/.
