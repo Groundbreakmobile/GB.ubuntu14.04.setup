@@ -116,11 +116,10 @@ ln -s /opt/phpfarm/inst/current-bin/php /usr/bin/php
 
 echo "set up apc for 5.4.45"
 
-cd /opt/phpfarm/src/
-mkdir -p /opt/phpfarm/src/extensions
-rm -rf extensions/*
+mkdir -p /opt/phpfarm/src/extensions/
+rm -rf /opt/phpfarm/src/extensions/*
 cd /opt/phpfarm/src/extensions/
- pecl download apc
+pecl download apc
 tar vxzf APC-3.1.13.tgz
  cd APC-3.1.13/
  /opt/phpfarm/inst/bin/phpize-5.4.45
