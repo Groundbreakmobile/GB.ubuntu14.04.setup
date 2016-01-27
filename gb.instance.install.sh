@@ -81,11 +81,13 @@ echo 'PATH="$PATH:/opt/phpfarm/inst/bin:/opt/phpfarm/inst/current-bin"' >> ~/.ba
 source ~/.bashrc
 
 echo "choose php version"
-switch-phpfarm 5.4.45
+/opt/phpfarm/inst/bin/switch-phpfarm 5.4.45
 #switch-phpfarm 5.3.29
 
 echo "adding APC"
 
+echo "installing pear"
+aptitude -y install php-pear
 
 echo "adding php-fpm init script"
 cp ~/GB.ubuntu14.04.setup/resources/init.d/php-init-fpm /etc/init.d/.
@@ -115,9 +117,9 @@ ln -s /opt/phpfarm/inst/current-bin/php /usr/bin/php
 echo "set up apc for 5.4.45"
 
 cd /opt/phpfarm/src/
-mkdir extensions
-rm -rf extensions
-cd extensions/
+mkdir -p /opt/phpfarm/src/extensions
+rm -rf extensions/*
+cd /opt/phpfarm/src/extensions/
  pecl download apc
 tar vxzf APC-3.1.13.tgz
  cd APC-3.1.13/
