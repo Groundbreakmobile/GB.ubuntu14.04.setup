@@ -127,6 +127,19 @@ tar vxzf APC-3.1.13.tgz
   make install
 
 
+echo "set up jsmin for 5.4.45"
+
+mkdir -p /opt/phpfarm/src/extensions/
+rm -rf /opt/phpfarm/src/extensions/*
+cd /opt/phpfarm/src/extensions/
+pecl download jsmin
+tar vxzf jsmin-2.0.1.tgz
+cd jsmin-2.0.1/
+/opt/phpfarm/inst/bin/phpize-5.4.45
+./configure --with-php-config=/opt/phpfarm/inst/bin/php-config-5.4.45
+make 
+make install
+
 
 # start php-fpm
 #php-fpm is now a service#/opt/phpfarm/inst/php-5.3.29/sbin/php-fpm -y /opt/phpfarm/inst/php-5.3.29/etc/php-fpm.conf -c /opt/phpfarm/inst/php-5.3.29/lib/php.ini
@@ -136,6 +149,11 @@ a2enmod proxy_fcgi
 
 echo "restart apache"
 service apache2 restart
+
+
+echo "set up cli sugarcrm repair script"
+cp ~/GB.ubuntu14.04.setup/resources/usr/bin/repair.php /usr/bin/repair
+chmod +x /usr/bin/repair
 
 echo "set git publishing credentials"
 git config --global user.name "NSM GB Server"
