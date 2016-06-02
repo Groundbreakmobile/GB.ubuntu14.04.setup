@@ -159,3 +159,9 @@ chmod +x /usr/bin/repair
 echo "set git publishing credentials"
 git config --global user.name "NSM GB Server"
 git config --global user.email nmorris@groundbreakmobile.com
+
+echo "starting swapfile script"
+~/GB.ubuntu14.04.setup/add.swapspace.sh
+
+echo "setting up composer"
+~/GB.ubuntu14.04.setup/add.composer.sh
