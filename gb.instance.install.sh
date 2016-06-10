@@ -128,18 +128,19 @@ tar vxzf APC-3.1.13.tgz
   make install
 
 
-echo "set up jsmin for 5.4.45"
+#jsmin adds illegal chars
+#echo "set up jsmin for 5.4.45"
 
-mkdir -p /opt/phpfarm/src/extensions/
-rm -rf /opt/phpfarm/src/extensions/*
-cd /opt/phpfarm/src/extensions/
-pecl download jsmin
-tar vxzf jsmin-2.0.1.tgz
-cd jsmin-2.0.1/
-/opt/phpfarm/inst/bin/phpize-5.4.45
-./configure --with-php-config=/opt/phpfarm/inst/bin/php-config-5.4.45
-make 
-make install
+#mkdir -p /opt/phpfarm/src/extensions/
+#rm -rf /opt/phpfarm/src/extensions/*
+#cd /opt/phpfarm/src/extensions/
+#pecl download jsmin
+#tar vxzf jsmin-2.0.1.tgz
+#cd jsmin-2.0.1/
+#/opt/phpfarm/inst/bin/phpize-5.4.45
+#./configure --with-php-config=/opt/phpfarm/inst/bin/php-config-5.4.45
+#make 
+#make install
 
 
 # start php-fpm
